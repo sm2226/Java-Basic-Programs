@@ -1,0 +1,39 @@
+
+
+public class quickSort {
+	public static void main(String [] args){
+		int[] A = {4,6,2,5,8,7,7,9};
+		int length = A.length;
+		quickSort q = new quickSort();
+		q.Quicksort(A,0,length-1);
+		System.out.println("Sorted array is ");
+		for(int j=0;j<A.length;j++)
+			System.out.print(A[j] + " ");
+	}
+	
+	void Quicksort(int [] A, int start, int end){
+		if(start<end){
+			int pindex = partition(A,start,end);
+			Quicksort(A,start,pindex-1);
+			Quicksort(A, pindex+1, end);
+		}
+	}
+	
+	int partition(int[] A, int low, int high){
+		int pivot=A[high];
+		int parindex = low;
+		int temp=0;
+		for(int i=low; i<high; i++){
+			if(A[i]<=pivot){
+				temp = A[i];
+				A[i]=A[parindex];
+				A[parindex]=temp;
+				parindex++;
+			}
+		}
+		temp = A[parindex];
+		A[parindex]=A[high];
+		A[high]=temp;
+		return parindex;
+	}
+}
