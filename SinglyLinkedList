@@ -1,0 +1,117 @@
+package Linkedlist;
+import java.util.Scanner;
+
+class Node {
+	Node next;
+	String data;
+	
+	Node(String data){
+		this.data = data;
+		this.next = null;
+	}
+}
+
+class Singlylinkedlist{
+	
+	Node head = null;
+	Node current = head;
+	
+	public void insert(String val){
+		Node new_node = new Node(val);
+		
+		if(head == null){
+			head = new_node;
+			new_node.next = null;
+			current = head;
+		}
+		
+		else if(head.next == null && head.data != null){
+			head.next = new_node;
+			new_node.next = null;
+		}
+		
+		else{
+			while(current.next != null)
+				current = current.next;
+			current.next = new_node;			
+		}
+		
+		System.out.println("Successfully inserted data");
+		
+	}
+	
+	public void delete(){
+		if(head == null){
+			System.out.println("No items to delete");
+			return;
+		}
+		
+		else{
+			while(current.next != null)
+				current = current.next;
+			current = null;
+			System.out.println("Successfully deleted last entry");
+		}
+	}
+	
+	public void show(){
+		if(head == null){
+			System.out.println("No items to show");
+			return;
+		}
+		else if(head.next == null && head.data != null){
+			while(current.next != null){
+				System.out.println(current.data + " ");
+				current = current.next;
+			}
+		}	
+		else{
+			while(current.next != null){
+				System.out.println(current.data + " ");
+				current = current.next;
+			}
+		}
+	}
+	
+}
+
+public class Linkedlist {
+	
+	private static Scanner sc;
+
+	public static void main(String [] args){
+		
+		sc = new Scanner(System.in);
+		int choice;
+		boolean b = true;
+		Singlylinkedlist list = new Singlylinkedlist();
+		do{
+			System.out.println("1 for Insertion ");	
+			System.out.println("2 for Deletion ");
+			System.out.println("3 for Print all elements");
+			System.out.println("4 to exit ");
+			System.out.println("Please enter your choice:" );
+			choice = sc.nextInt();
+			switch(choice) {
+			case 1: System.out.println("Please enter data:" );
+					String val = sc.next();
+					list.insert(val);
+					break;
+				
+			case 2: list.delete();
+					break;
+				
+			case 3: list.show();
+					break;
+				
+			case 4: b = false;
+		
+			default: System.out.println("Invalid choice");
+					break;
+				
+			}
+		}while(b);
+	}
+}
+	
+	
