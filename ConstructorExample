@@ -1,0 +1,16 @@
+public class Example {
+	
+	Example(){
+		System.out.println("This is a Non parameterized Constructor");
+	}
+	
+	Example(int a, int b){
+		System.out.println("This is a parameterized Constructor");
+		System.out.println("Passed values are: "+a+" , "+b);
+	}
+	
+	public static void main(String [] args){
+		Example obj1 = new Example();
+		Example obj2 = new Example(25,26);
+	}
+}
