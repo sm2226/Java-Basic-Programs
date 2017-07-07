@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class inputArray {
+	private static Scanner sc;
+
+	public static void main(String []args){
+		int len;
+		System.out.println("Enter the length of array: ");
+		sc = new Scanner(System.in);
+		len = sc.nextInt();
+		int [] a = new int[len];
+		System.out.println("Enter "+len+" number of elements to insert in an array.");
+		for(int i=0; i<len;i++)
+			a[i]= sc.nextInt();
+		System.out.println("The elements you have inserted in the array are:");
+		for(int i=0;i<len;i++)
+			System.out.println(a[i]);
+	}
+	
+}
