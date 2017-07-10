@@ -1,0 +1,11 @@
+-- This program gives a example of performing Type casting
+
+public class typeCast {
+	public static void main(String [] args){
+		int a;
+		float x = 4.5f;
+		System.out.println("Floating point value before typecasting: " +x);
+		a = (int) x;
+		System.out.println("Floating point value after typecasting: " +a);
+	}
+}
