@@ -1,3 +1,4 @@
+--This program shows how an array should be created and elements can be scanned
 import java.util.Scanner;
 
 public class inputArray {
