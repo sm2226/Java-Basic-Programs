@@ -1,0 +1,17 @@
+// This is an example for dealing with command Line Arguments 
+public class CammandLineExample { 
+		public static void main(String [] args){  
+			
+		//Integer array "Values" is created with length of argrs passed in command line 
+		int [] values = new int[args.length];
+		
+		//The args are converted into integer type before storing them into newly created array
+		for(int i=0 ; i<args.length ; i++)
+			values[i] = Integer.parseInt(args[i]);
+		
+		//This loop is used to write the values to the console
+		for(int j=0 ; j<args.length ; j++)
+			System.out.println("Argument number " +j+" :"+values[j]); 
+		}  
+
+}
