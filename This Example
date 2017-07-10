@@ -1,0 +1,28 @@
+// This is a program to demonstrate the usage of this Keyword
+public class thisExample {
+	int a, b;
+	
+//Setters - Assigns the data of associated object values
+	void setData(int x, int y){
+		this.a = x;
+		this.b = y;
+	}
+//getters - Prints out the data of associated object values
+	void getData(){
+		System.out.println("Value of a: " + this.a);
+		System.out.println("Value of b: " + this.b);
+	}
+	
+	public static void main(String [] args){
+		thisExample obj1 = new thisExample();
+		thisExample obj2 = new thisExample();
+		
+		obj1.setData(2, 3);
+		obj1.getData();
+		
+		obj2.setData(4, 5);
+		obj2.getData();
+		
+		
+	}
+}
