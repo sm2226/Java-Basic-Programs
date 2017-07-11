@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class replacingCharacters {
+
+	private static Scanner sc;
+
+	public static void main(String [] args){
+		String input;
+		String output="";
+		System.out.println("Enter the string with a minimum of 7 characters: ");
+		sc = new Scanner(System.in);
+		input = sc.nextLine();
+		// for loop to write all the characters onto output string
+		for(int i=0 ; i<input.length() ; i++)
+			if( i == 1 || i == 2){
+				output = output + input.charAt(6);
+			}
+			else{
+				output = output + input.charAt(i);
+			}
+		// Concatening the string with "new"
+		output = output + "new";
+		System.out.println("New String: "+output);
+		
+		
+		
+	}
+}
