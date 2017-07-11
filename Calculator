@@ -9,6 +9,8 @@ public class Calculator {
         System.out.println("Enter first and second number:");
         inp = new Scanner(System.in);
         int num1,num2;
+	
+	//Two user inputs (Numbers on whic calculations are to be performed
         num1 = inp.nextInt();
         num2 = inp.nextInt();
         System.out.println("Enter your selection: 1 for Addition, 2 for substraction 3 for Multiplication and 4 for division:");
