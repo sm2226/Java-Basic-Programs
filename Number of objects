@@ -1,0 +1,22 @@
+public class NumberOfObjects {
+	
+	//Created a static variable since it will be common to all the objects.
+	static int count=0;
+	
+	//Constructor is used to increment the count. Since every time an object is created; constructor is called
+	NumberOfObjects(){
+		count++;
+	}
+	
+	public static void main(String [] args){
+		
+		NumberOfObjects obj1 = new NumberOfObjects();
+		NumberOfObjects obj2 = new NumberOfObjects();
+		NumberOfObjects obj3 = new NumberOfObjects();
+		NumberOfObjects obj4 = new NumberOfObjects();
+		
+		System.out.println("Number of Objects: "+count);
+		
+	}
+	
+}
