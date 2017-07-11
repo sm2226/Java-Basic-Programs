@@ -5,6 +5,8 @@ public class typeCast {
 		int a;
 		float x = 4.5f;
 		System.out.println("Floating point value before typecasting: " +x);
+		
+		//Explicit type-casting
 		a = (int) x;
 		System.out.println("Floating point value after typecasting: " +a);
 	}
