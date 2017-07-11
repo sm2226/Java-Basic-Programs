@@ -1,0 +1,34 @@
+
+public class MethodOverloading {
+	
+	int age, roll_no;
+	String name;
+	
+  //BasicMethod is a normal method in MethodOverloading class with no arguments
+	void BasicMethod(){
+		System.out.println("An object is created without passing any parameters.");
+	}
+	
+	//BasicMethod is overloaded with 2 arguments
+	void BasicMethod(int age, String name){
+		this.age = age;
+		this.name = name;
+		System.out.println("The object called the method with same name as before but with age and name passed as parameters.");
+	}
+	
+  //BasicMethod is overloaded with 2 arguments but with different types of arguments as before
+	void BasicMethod(int age, int roll_no){
+		this.age = age;
+		this.roll_no = roll_no;
+		System.out.println("The object called the method with same name as before but with age and roll_no passed as parameters.");
+	}
+	
+	public static void main(String[] args){
+		MethodOverloading MO = new MethodOverloading();
+		MO.BasicMethod();
+		MO.BasicMethod(25,"Sushma");
+		MO.BasicMethod(25, 31367325);
+		
+		
+	}
+}
