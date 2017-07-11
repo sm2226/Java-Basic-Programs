@@ -5,15 +5,25 @@ public class Palindrome {
 	private static Scanner sc;
 
 	public static void main(String [] args){
+	
+		// New input from user to check if its palindrome or not
 		sc = new Scanner(System.in);
 		System.out.println("Enter a word to check its palindrome or not: ");
 		String original = sc.nextLine();
 		int length = original.length();
+		
+		// New empty string to store reverse 
 		String reverse = "";
+		
+		// Converted all the characters in the string into lower case
 		original = original.toLowerCase();
+		
+		// Reversing the string
 		for(int i=length-1;i>=0;i--){
 			reverse = reverse + original.charAt(i);
 		}
+		
+		//Checking the string with its reverse 
 		if(original.equals(reverse))
 			System.out.println(original + " is palindrome");
 		else
