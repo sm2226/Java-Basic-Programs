@@ -1,3 +1,5 @@
+//Program shows simple execution of Nested For loop
+
 import java.util.*;
 class Stars {
 	public static void main (String []args){
