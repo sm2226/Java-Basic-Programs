@@ -1,0 +1,51 @@
+
+class Parent{
+	void NoExceptionMessage(){
+		System.out.println("This method is from Parent class which doesnot throw any exception ");
+	}
+	
+	void ExceptionMessage() throws ArithmeticException{
+		System.out.println("This method is from Parent class which throws AirthmeticException ");
+	}
+}
+
+class Child extends Parent{
+	/*void NoExceptionMessage(){
+	 *	System.out.println("This method is from Child class which doesn't throw any exception ");
+	 *}
+	 *This declaration is valid and doesn't throw any error
+	
+	 * void NoExceptionMessage() throws IOException{
+	 * 		System.out.println("This method is from Child class which throws checked exception ");
+	 * } 
+	 * cannot create this method as the parent class method doesn't throw any exception
+	 * Hence you can throw only a unchecked exception 
+	 */
+	void NoExceptionMessage() throws ArithmeticException{
+		System.out.println("This method is from Child class which throws unchecked exception ");
+	}
+	
+	/* void ExceptionMessage(){
+	 * 		System.out.println("This method is from Child class which doesn't throw any exception even if parent method thorws one ");
+	 * }
+	 * This is a valid way of declaring
+	 * 
+	 * void ExceptionMessage() throws Exception{
+	 * 		System.out.println("This method is from Child class which throws Exception ");
+	 * }
+	 * We cannot throw an exception like this because overridden method can have same or subclass exception only  
+	 */
+	void ExceptionMessage() throws ArithmeticException{
+		System.out.println("This method is from Child class which throws same exception as parent method");
+	}
+	
+}
+
+public class ExceptionHandling {
+	public static void main(String [] args){
+		Parent p = new Child();
+		
+		p.NoExceptionMessage();
+		p.ExceptionMessage();
+	}
+}
