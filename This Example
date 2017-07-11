@@ -17,9 +17,12 @@ public class thisExample {
 		thisExample obj1 = new thisExample();
 		thisExample obj2 = new thisExample();
 		
+		//New object created with 2, 3 passed as parameters
 		obj1.setData(2, 3);
 		obj1.getData();
 		
+		
+		//New object created with 4, 5 passed as parameters
 		obj2.setData(4, 5);
 		obj2.getData();
 		
