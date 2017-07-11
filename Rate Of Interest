@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+// Interface declaration with an unimplemented method
+interface RateOfInterest{
+	
+	double GetRateOfInterest(int p, int t, float r);
+}
+
+// AXIS class implements RateOfInterest interface
+class AXIS implements RateOfInterest {
+
+	public double GetRateOfInterest(int p, int t, float r){
+		
+		return ((p*t*r)/100);
+	}
+	
+}
+
+//ICICI class implements RateOfInterest interface
+class ICICI implements RateOfInterest{
+	public double GetRateOfInterest(int p, int t, float r){
+		
+		return ((p*t*r)/100);
+	}
+}
+
+// Main method to create objects for AXIS and ICICI banks and access their methods
+public class Main {
+	private static Scanner sc;
+
+	public static void main(String [] args){
+		
+		int principal, time;
+		float rate;
+		
+		AXIS axisbank = new AXIS(); 			// AXIS class object creation
+		ICICI icicibank = new ICICI();			// ICIC class object creation
+		sc = new Scanner(System.in);			// Scanner object to scan values from user
+		
+		// Scanning user defined values for Principal, time and ROI for AXIS bank
+		System.out.println("Enter the Principal, Time and Rate of interest for AXIS bank: ");
+		principal = sc.nextInt();
+		time = sc.nextInt();
+		rate = sc.nextFloat();
+		
+		// Calling the implemented method in AXIS bank using axisbank object
+		double interest = axisbank.GetRateOfInterest(principal, time, rate);
+		System.out.println("The Interest amount with AXIS bank is: "+interest);
+
+		// Scanning user defined values for Principal, time and ROI for ICICI bank
+		System.out.println("Enter the Principal, Time and Rate of interest for ICICI bank: ");
+		principal = sc.nextInt();
+		time = sc.nextInt();
+		rate = sc.nextFloat();
+
+		// Calling the implemented method in ICICI bank using icicibank object
+		interest = icicibank.GetRateOfInterest(principal, time, rate);
+		System.out.println("The Interest amount with ICICI bank is: "+interest);
+	}
+}
