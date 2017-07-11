@@ -9,10 +9,16 @@ public class inputArray {
 		System.out.println("Enter the length of array: ");
 		sc = new Scanner(System.in);
 		len = sc.nextInt();
+		
+		//Created a array according to the length mentioned by the user
 		int [] a = new int[len];
 		System.out.println("Enter "+len+" number of elements to insert in an array.");
+		
+		// Scanning the values into the array a[]
 		for(int i=0; i<len;i++)
 			a[i]= sc.nextInt();
+		
+		// Printing out the elements onto console	
 		System.out.println("The elements you have inserted in the array are:");
 		for(int i=0;i<len;i++)
 			System.out.println(a[i]);
