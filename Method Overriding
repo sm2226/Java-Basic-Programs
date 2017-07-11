@@ -1,0 +1,29 @@
+
+class BaseClass {
+	
+	public void Method(){
+		System.out.println("Hello, I am Method from class MethodOverriding (Parent class)"); 
+	}
+
+}
+
+public class DerivedClass extends BaseClass{
+	public void Method(){
+		System.out.println("Hello, I am Method from class DerivedClass (Child class)"); 
+	}
+	
+	public static void main(String [] args){
+		
+		// Base class object with its own method 
+		BaseClass obj = new BaseClass();
+		obj.Method();
+		
+		// Derived class object with its own overridden method
+		DerivedClass obj2 = new DerivedClass();
+		obj2.Method();
+		
+		//Derived class object but with Base class reference calls the overridden method
+		BaseClass obj4 = new DerivedClass();
+		obj4.Method();
+	}
+}
