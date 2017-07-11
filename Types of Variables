@@ -1,0 +1,43 @@
+//Simple Java Program showing the usage of Instance, Static and Local Variables in Java
+public class VariableTypes {
+ 
+	// This is an instance variable. Instance variables are generally outside any method
+	String instanceVariable;
+ 
+	//This is static variable. Since it is outside any method and has static keyword.
+	static String staticVariable;
+ 
+	public void method() {
+		
+		// This is a local variable within a method called "method". Local variables can only be 			final
+		final String localVariable = "Local Variable";
+		System.out.println();
+		System.out.println("Printing Local variables:");
+		System.out.println("Printing out in the method: "+localVariable);
+	}
+ 
+	public static void main(String args[]) {
+		VariableTypes obj = new VariableTypes();
+ 
+		obj.instanceVariable = "Instance Variable";
+		staticVariable = "Static variable";
+		
+		//Instance variable can only be accessed by Object of the class only as below.
+		System.out.println("Printing Instance variables:");
+		System.out.println("Instance variable using obj1: "+obj.instanceVariable);
+		System.out.println("Using new object using which we didnt intialize the value: "+new VariableTypes().instanceVariable);
+		/*
+		  Static field can be accessed in two way.
+		  1- Via Object of the class
+		  2- Via CLASS name
+		  But the preferred way is using either the class name or directly the identifier
+		 */
+		System.out.println();
+		System.out.println("Printing Static variables:");
+		System.out.println("Using the identifier itself: "+staticVariable);
+		System.out.println("Using the class name: "+VariableTypes.staticVariable);
+		
+		obj.method();
+               
+	}
+}
