@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class GradingSystem {
+	
+	private static Scanner sc;
+	
+	//This is a method which calculates the grade according to the score that is passed on as arguments
+	public String getGrade(int marks){
+		if(marks>90)
+			return "A+";
+		else if(marks>70 && marks<=90)
+			return "A";
+		else if(marks>60 && marks<=70)
+			return "B";
+		else if(marks>35 && marks<=60)
+			return "C";
+		else
+			return "D";
+					
+	}
+	
+	public static void main(String [] args){
+		System.out.println("Enter the marks of the student to view the Grade: ");
+		sc = new Scanner(System.in);
+		int score = sc.nextInt();
+		GradingSystem GS = new GradingSystem();
+		String grade = GS.getGrade(score);
+		System.out.println("You received a "+grade+ " grade");
+		System.out.println("Congratulations!!!");
+	}
+	
+	
+}
