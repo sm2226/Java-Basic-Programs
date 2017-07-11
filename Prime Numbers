@@ -1,0 +1,25 @@
+
+public class PrimeNumbers {
+	
+	//Method that checks whether the passed number as argument is prime or not
+	public boolean isPrime(int n){
+		for(int i=2 ; i<=n/2 ; i++){
+			if(n%i == 0)
+				return false;
+		}
+		return true;
+	}
+	
+	public static void main(String [] args){
+		
+		PrimeNumbers obj = new PrimeNumbers();
+		
+		//To print prime numbers below 50 we are running a loop from 2 to 50
+    //when the method returns a true value, the number is then printed on to the console
+		for(int j=2 ; j<50 ; j++){
+		  boolean flag = obj.isPrime(j);
+		  if(flag)
+			  System.out.print(j+" ");
+		}
+	}
+}
