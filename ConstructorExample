@@ -1,9 +1,11 @@
 public class Example {
 	
+	// Constructor with no arguments
 	Example(){
 		System.out.println("This is a Non parameterized Constructor");
 	}
 	
+	//Overloading the constuctor with different number of arguments
 	Example(int a, int b){
 		System.out.println("This is a parameterized Constructor");
 		System.out.println("Passed values are: "+a+" , "+b);
