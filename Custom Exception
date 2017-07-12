@@ -1,0 +1,36 @@
+
+// Creating a new custom exception
+class CustomExceptions extends Exception{
+	
+	// Create a constructor and pass the arguments to parent class Exception 
+	public CustomExceptions(String message){
+		
+		super(message);
+	}
+}
+
+// This is the class where we throw our custom exception
+class tryClass{
+	public String method(int x) throws CustomExceptions{
+		
+		if(x == 10){
+			throw new CustomExceptions("Value passed is 10!!"); // By creating an object the constructor is called.
+		}
+		else
+			return "Compiled without errors!!";
+	}
+}
+
+/* This class drives the execution as it has the main method
+ * An object is created to the class in which custom exception is thrown
+ * The method call is then done in a try catch block 
+*/
+public class DriverClass {
+	public static void main(String[] args){
+		tryClass tc = new tryClass();
+		try{
+			String result = tc.method(10);
+		}
+		catch(CustomExceptions e){ e.printStackTrace(); }
+	}
+}
