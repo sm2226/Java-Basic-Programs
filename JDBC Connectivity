@@ -1,0 +1,103 @@
+package JDBCConnectivity;
+
+import java.sql.Connection;  
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+class ConnToMysql {
+	static public Connection getConn(){
+		Connection con=null;
+		try{
+			/* Before accessing the data from Database, we need to establish a connection 
+			 * between Database and Java Application. "com.mysql.jdbc.Driver" is where driver class for mysql is present.
+			 * Using Connection class we create a connection by invoking getConnection method
+			 * 3306 is the default port where mysql is installed when u install on pc
+			 */
+			Class.forName("com.mysql.jdbc.Driver");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/sushma_work", "root", "root");
+		}
+		catch(Exception e){
+		//	System.out.println("Error:   "+e);
+		}
+		return con;
+	}
+}
+
+public class JdbcConnectivity {
+	void selectAll(Connection con){
+		try {
+			PreparedStatement pst=con.prepareStatement("select * from students");
+			ResultSet rs=pst.executeQuery();
+			System.out.printf("%-10s %-20s %-10s %-20s %-10s\n", "ID", "NAME", "STREAM", "ROLL_NO", "DOB");
+			while(rs.next()){			
+				System.out.printf("%-10s %-20s %-10s %-20s %-10s\n", rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+			}
+			pst.close();
+		} 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+		//	e.printStackTrace();
+		}
+	}
+	
+	void nameStream(Connection con){
+		try {
+			PreparedStatement pst=con.prepareStatement("select NAME, STREAM from STUDENTS");
+			ResultSet rs=pst.executeQuery();
+			while(rs.next()){			
+				System.out.println("Name: "+rs.getString(2)+"Stream: "+rs.getString(3));
+			}
+			pst.close();
+		} 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+		}
+	}
+	
+	void insert(Connection con){
+		try {
+			// "insert into student (count,userId,name) values("+count+",'"+userId+"','"+name+"')";
+			String query = "insert into STUDENTS (NAME, STREAM, ROLL_NO, DOB) values ('Sushma','CSE',31367330,'04/11/1992')";
+			PreparedStatement pst=con.prepareStatement(query);
+			pst.executeUpdate();			
+			System.out.println("Inserted New row");
+			pst.close();
+		} 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+		//	e.printStackTrace();
+		}
+	}
+	
+	void updateData(Connection con){
+		try {
+			String query = "update STUDENTS set ROLL_NO = 31367332 where NAME = 'Sushma'";
+			PreparedStatement pst=con.prepareStatement(query);
+			pst.executeUpdate();			
+			System.out.println("Updated row");
+			pst.close();
+		} 
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+		//	e.printStackTrace();
+		}
+	}
+	public static void main(String args[]){
+		Connection con= ConnToMysql.getConn();
+		
+		JdbcConnectivity jdbc = new JdbcConnectivity();
+		
+		jdbc.selectAll(con);
+		jdbc.nameStream(con);
+		jdbc.insert(con);
+		jdbc.updateData(con);
+		try{
+		con.close();
+		}
+		catch(Exception e){}
+	}
+}
+
